@@ -18,6 +18,7 @@ class Test extends Component {
         pip: false,
         playing: true,
         controls: true,
+        legacyMode: true,
         light: false,
         volume: 0.8,
         muted: false,
@@ -154,7 +155,7 @@ class Test extends Component {
         console.error(err);
         this.setState({               
             showQrReader: false, 
-            result:'Not able to open camera view....'       
+            result:'Webcam not supported....'       
         });       
     }
 
@@ -193,6 +194,7 @@ class Test extends Component {
             onEnded={this.handleAfterEnd}           
             playing={playing}       
             muted={muted}       
+            legacyMode={legacyMode}       
             controls={controls}                    
             onPlay={this.onPlay}             
             onPause={this.onPause}
