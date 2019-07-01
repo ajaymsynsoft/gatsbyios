@@ -10,7 +10,7 @@ var QrReader = '';
 
 class Test extends Component {
     state = {
-        result: 'No result',
+        result: 'Opening camera....',
         QrReader: false,
         showQrReader: true,
         showMP3Player: false,
@@ -47,8 +47,7 @@ class Test extends Component {
     handleAfterEnd = data => {
         console.log("handleAfterEnd", data);
         this.setState({
-            url: '',
-            result: '',
+            url: '',          
             showQrReader: true,
             showMP3Player: false,
             playing: false
@@ -70,8 +69,7 @@ class Test extends Component {
             url = url.toLowerCase();
             console.log(url);
             if (audioList.indexOf(url) > -1) {
-                this.setState({
-                    result: url,
+                this.setState({                   
                     showQrReader: false,
                     showMP3Player: true,
                     playing: true,
@@ -85,6 +83,7 @@ class Test extends Component {
 
             }
         }
+     this.setState({ result: '' });
     }
 
 
@@ -102,8 +101,7 @@ class Test extends Component {
             console.log("url", audioList.indexOf(url));
             console.log(url);
             if (audioList.indexOf(url) > -1) {
-                this.setState({
-                   result: url,
+                this.setState({                  
                     showQrReader: false,
                     showMP3Player: true,
                     playing: true,
@@ -114,6 +112,7 @@ class Test extends Component {
                 })
             }
         }
+        this.setState({ result: '' });
     }
 
     onProgress = state => {
@@ -150,6 +149,7 @@ class Test extends Component {
     handleError = err => {
         console.error(JSON.stringify(err));
         console.error(err)
+        this.setState({ result: 'Not able to open QR reader....' });
     }
 
 
@@ -167,6 +167,12 @@ class Test extends Component {
           style={{ width: '100%' }}
           />  
           </div>         
+        }
+
+        { !!this.state.result &&    
+          <p>
+            {this.state.result}
+          </p>         
         }
 
         {this.state.showMP3Player && 
