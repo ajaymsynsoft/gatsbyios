@@ -151,8 +151,11 @@ class Test extends Component {
     handleError = err => {
         console.log("handleError");
         console.error(JSON.stringify(err));
-        console.error(err)
-        this.setState({ result: 'Not able to open QR reader....' });
+        console.error(err);
+        this.setState({               
+            showQrReader: false, 
+            result:'Not able to open QR reader....'       
+        });       
     }
 
 
