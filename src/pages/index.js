@@ -64,7 +64,7 @@ class Test extends Component {
 
 
     handleScan = url => {
-        console.log("handleScan",handleScan);
+        console.log("handleScan");
         console.log(url);
         if (typeof url == 'string') {
             url = url.toLowerCase();
@@ -95,7 +95,7 @@ class Test extends Component {
     }
 
     handleLoad = url => {
-        console.log("handleLoad",handleLoad);
+        console.log("handleLoad");
         console.log(url);
         // alert(JSON.stringify(data));
         if (typeof url == 'string') {
@@ -149,7 +149,7 @@ class Test extends Component {
 
 
     handleError = err => {
-        console.log("handleError",handleError);
+        console.log("handleError");
         console.error(JSON.stringify(err));
         console.error(err)
         this.setState({ result: 'Not able to open QR reader....' });
