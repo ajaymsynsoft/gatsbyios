@@ -154,7 +154,7 @@ class Test extends Component {
         console.error(err);
         this.setState({               
             showQrReader: false, 
-            result:'Not able to open QR reader....'       
+            result:'Not able to open camera view....'       
         });       
     }
 
